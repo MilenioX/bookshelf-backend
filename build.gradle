@@ -1,14 +1,21 @@
-plugins {
-  id 'application'
+allprojects {
+  apply plugin: 'java'
+
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    testImplementation 'junit:junit:4.13.2'
+  }
 }
 
-mainClassName='com.mundox.bookshelf.Main'
-version='1.0.0-SNAPSHOT'
+version ='1.0.0-SNAPSHOT'
 
-repositories {
-  mavenCentral()
-}
+project(':core') {}
 
-dependencies {
-  testImplementation 'junit:junit:4.13.2'
+project(':ports') {
+  dependencies {
+    implementation project(':core')
+  }
 }
