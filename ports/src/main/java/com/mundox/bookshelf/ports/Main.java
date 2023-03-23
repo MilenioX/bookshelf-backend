@@ -1,6 +1,6 @@
 package com.mundox.bookshelf.ports;
 
-import com.mundox.bookshelf.core.Book;
+import com.mundox.bookshelf.core.domain.Book;
 
 public class Main {
   public static void main(String[] args) {
@@ -12,7 +12,7 @@ public class Main {
   }
 
   public static String getFirstBook() {
-    Book firstBook = new Book("The power of habits");
+    Book firstBook = new Book(101L, "The power of habits");
     return firstBook.getTitle();
   }
 }
