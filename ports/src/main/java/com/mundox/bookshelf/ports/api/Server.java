@@ -5,8 +5,12 @@ import com.mundox.bookshelf.core.domain.Book;
 import com.mundox.bookshelf.core.queries.BooksQuery;
 import com.mundox.bookshelf.ports.database.adapters.ActionBooksAdapter;
 import com.mundox.bookshelf.ports.database.adapters.GetBooksAdapter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Server {
+
+    private static final Logger LOGGER = LogManager.getLogger(Server.class);
 
     private final ActionBooksAdapter actionBooksAdapter = new ActionBooksAdapter();
     private final GetBooksAdapter getBooksAdapter = new GetBooksAdapter();
@@ -18,7 +22,8 @@ public class Server {
     private final BooksQuery booksQuery = new BooksQuery(getBooksAdapter);
 
     public void serverMock() {
-        System.out.println("Starting server...");
+        LOGGER.info("Starting the server...");
+        LOGGER.info("Starting server...");
         booksCommand.addBook(new Book(200L, "the alchemist"));
         booksCommand.updateTitle("The alchemist", 200L);
         booksCommand.deleteBook(101L);
