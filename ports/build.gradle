@@ -3,3 +3,18 @@ plugins {
 }
 
 mainClassName = "com.mundox.bookshelf.ports.Main"
+
+def versions = [
+        AkkaVersion: "2.7.0",
+        ScalaBinary: "2.13"
+]
+
+dependencies {
+  implementation platform("com.typesafe.akka:akka-http-bom_${versions.ScalaBinary}:10.5.0")
+
+  implementation "com.typesafe.akka:akka-actor-typed_${versions.ScalaBinary}:${versions.AkkaVersion}"
+  implementation "com.typesafe.akka:akka-stream_${versions.ScalaBinary}:${versions.AkkaVersion}"
+  implementation "com.typesafe.akka:akka-http_${versions.ScalaBinary}"
+  implementation "com.typesafe.akka:akka-http-jackson_${versions.ScalaBinary}"
+
+}
