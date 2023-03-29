@@ -1,13 +1,13 @@
 package com.mundox.bookshelf.ports;
 
 import com.mundox.bookshelf.core.domain.Book;
-import com.mundox.bookshelf.ports.api.Server;
+import com.mundox.bookshelf.ports.application.Environment;
+
+import java.io.IOException;
 
 public class Main {
-  public static void main(String[] args) {
-    System.out.println(salute());
-    Server server = new Server();
-    server.serverMock();
+  public static void main(String[] args) throws IOException {
+    Environment.createEnv();
   }
 
   public static String salute() {
